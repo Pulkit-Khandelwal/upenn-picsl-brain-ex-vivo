@@ -8,6 +8,12 @@ Recent pilot studies:
 
 [3] https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.065737
 
+
+#### Utilities
+flash_to_t2w_ACPC.md : convert the FLASH space voxel coordinates to T2w image
+exvivo-segm-demo-docker.md : docker container and get going with parcellating ex vivo 7Tesla
+
+
 #### Video teaser (click below)
 <div align="center">
       <a href="https://www.youtube.com/embed/e1XtdM61gkY">
