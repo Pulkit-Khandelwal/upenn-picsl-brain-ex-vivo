@@ -13,9 +13,8 @@
 10/19/22:
 - First created!
 
-![Alt Text](https://github.com/Pulkit-Khandelwal/exvivo-commands/blob/main/files/img.gif)
-![Alt Text](https://github.com/Pulkit-Khandelwal/exvivo-commands/blob/main/files/segm.gif)
-
+![Alt Text](https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/img.gif)
+![Alt Text](https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/segm.gif)
 
 # Some useful things
 - You don't need any working knowledge of docker or kubernetes, but if curious, here is a great [YouTube video](https://youtu.be/3c-iBn73dDE).
