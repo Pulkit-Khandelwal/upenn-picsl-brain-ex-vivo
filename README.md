@@ -8,7 +8,7 @@ Recent pilot studies:
 
 [3] https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.065737
 
-<div align="left">
+<div align="center">
       <a href="https://www.youtube.com/embed/e1XtdM61gkY">
          <img src="https://img.youtube.com/vi/5yLzZikS15k/0.jpg" style="width:50%;">
       </a>
