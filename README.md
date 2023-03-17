@@ -8,7 +8,7 @@ Recent pilot studies:
 
 [3] https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.065737
 
-##### Video teaser (click below)
+#### Video teaser (click below)
 <div align="center">
       <a href="https://www.youtube.com/embed/e1XtdM61gkY">
          <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/thumbnail.png" style="width:75%;">
