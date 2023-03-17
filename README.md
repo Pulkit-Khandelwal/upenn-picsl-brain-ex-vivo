@@ -14,11 +14,11 @@
 
 Recent pilot studies:
 
-[1] https://arxiv.org/abs/2110.07711
+- https://arxiv.org/abs/2110.07711
 
-[2] https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.062628
+- https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.062628
 
-[3] https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.065737
+- https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.065737
 
 
 #### Utilities
