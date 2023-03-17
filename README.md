@@ -1,5 +1,8 @@
 ### Automated deep learning segmentation of high-resolution 7 T ex vivo MRI for quantitative analysis of structure/pathology correlations in neurodegenerative disease
 
+![Alt Text](https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/img.gif)
+![Alt Text](https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/segm.gif)
+
 Recent pilot studies:
 
 [1] https://arxiv.org/abs/2110.07711
