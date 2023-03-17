@@ -10,7 +10,7 @@ Recent pilot studies:
 
 <div align="center">
       <a href="https://www.youtube.com/embed/e1XtdM61gkY">
-         <img src="https://img.youtube.com/vi/5yLzZikS15k/0.jpg" style="width:50%;">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/thumbnail.png" style="width:50%;">
       </a>
 </div>
 
