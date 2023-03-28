@@ -1,3 +1,5 @@
+# Welcome to hippogang/PICSL's ex vivo world at UPenn!
+
 ### Automated deep learning segmentation of high-resolution 7 T ex vivo MRI for quantitative analysis of structure/pathology correlations in neurodegenerative disease
 
 <div align="center">
