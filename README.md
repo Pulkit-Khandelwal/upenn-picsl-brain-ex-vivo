@@ -14,8 +14,11 @@
 </div>
 
 
-#### Recent pilot studies
+#### Maijn paper
+- https://arxiv.org/abs/2303.12237
 
+
+#### Previous pilot studies
 - https://arxiv.org/abs/2110.07711
 
 - https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.062628
