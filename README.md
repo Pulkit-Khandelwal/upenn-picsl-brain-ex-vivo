@@ -14,7 +14,7 @@
 </div>
 
 
-#### Maijn paper
+#### Main paper
 - https://arxiv.org/abs/2303.12237
 
 
