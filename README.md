@@ -14,6 +14,11 @@
 </div>
 
 
+If you are using this tool for you research, please consider citing the work:
+
+```
+Khandelwal, P., Duong, M.T., Sadaghiani, S., Lim, S., Denning, A., Chung, E., Ravikumar, S., Arezoumandan, S., Peterson, C., Bedard, M. and Capp, N., 2023. Automated deep learning segmentation of high-resolution 7 T ex vivo MRI for quantitative analysis of structure-pathology correlations in neurodegenerative diseases. arXiv preprint arXiv:2303.12237.
+```
 #### Main paper
 - https://arxiv.org/abs/2303.12237
 
