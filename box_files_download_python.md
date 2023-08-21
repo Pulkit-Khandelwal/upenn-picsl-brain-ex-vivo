@@ -36,7 +36,7 @@
 
 ###### Let's write some simple Python code for locating and downloading your files and folders to a specific folder
 
-You will need to download ```boxsdk``` library from here[https://github.com/box/box-python-sdk] via ```pip3 install boxsdk```
+You will need to download ```boxsdk``` library from [here](https://github.com/box/box-python-sdk) via ```pip3 install boxsdk```
 
 
 
