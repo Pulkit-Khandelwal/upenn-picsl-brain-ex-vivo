@@ -94,4 +94,4 @@ for item in items:
                 open_file.close()
 ```
 
-### That's it! Let me knwo of any questions :)
+### That's it! Let me know of any questions :)
