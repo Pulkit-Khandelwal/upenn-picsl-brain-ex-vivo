@@ -1,4 +1,4 @@
-# Here we will setup the Box devloper account and then see how to downlaod files and folders automatically
+# Setting-up the Box developer account to downlaod files and folders in Python
 ### Author: Pulkit Khandelwal
 
 
