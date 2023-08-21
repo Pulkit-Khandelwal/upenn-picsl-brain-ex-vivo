@@ -10,26 +10,26 @@
 
 ##### Click on create new app
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2-1.png" style="width:75%; height:75%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2-1.png" style="width:50%; height:40%">
       </a>
 </div>
 
 ##### Enter a name for your app
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2.png" style="width:75%; height:75%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2.png" style="width:50%; height:40%">
       </a>
 </div>
 
 
 ##### Have the following settings and then create the app
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-3.png" style="width:75%; height:75%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-3.png" style="width:50%; height:40%">
       </a>
 </div>
 
 ##### Now, click on configuration and generate a developer token. You will need the Developer Token, Client ID and Client Secret later
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-4.png" style="width:75%; height:75%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-4.png" style="width:50%; height:40%">
       </a>
 </div>
 
