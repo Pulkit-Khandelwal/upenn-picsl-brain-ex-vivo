@@ -4,7 +4,7 @@
 
 ##### Locate the Box Developer console on the bottom left
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-1.png" style="width:75%; height:40%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-1.png" style="width:25%; height:10%">
       </a>
 </div>
 
