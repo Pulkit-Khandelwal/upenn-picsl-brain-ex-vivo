@@ -10,7 +10,7 @@
 
 ##### Click on create new app
 <div align="center">
-         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2-1.png" style="width:50%; height:40%">
+         <img src="https://github.com/Pulkit-Khandelwal/picsl-brain-ex-vivo/blob/main/files/box-dev-2-1.png" style="width:60%; height:70%">
       </a>
 </div>
 
