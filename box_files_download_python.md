@@ -70,7 +70,7 @@ for item in items:
 # The foler where I want to save the files from Box in my local directory
 parent_dir = '/data/pulkit/exvivo_data_revised'
 
-# Folder iD, as didentified above, where my data lives
+# Folder iD, as identified above, where my data lives
 items = client.folder(folder_id='112217518064').get_items()
 
 # Now, I write custom code to download files
