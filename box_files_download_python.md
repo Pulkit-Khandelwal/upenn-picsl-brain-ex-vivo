@@ -94,4 +94,20 @@ for item in items:
                 open_file.close()
 ```
 
+# What if I have a shared link to the data?
+```
+web_link_url = 'https://upenn.app.box.com/s/BLAH_BLAH_BLAH'
+
+shared_folder = client.get_shared_item(web_link_url,'' )
+print(f"Shared Folder: {shared_folder.id}: {shared_folder.name}")
+
+items = shared_folder.get_items()
+for item in items:
+    print(f"{item.type}\t{item.id}\t{item.name}")
+    
+    with open(os.path.join(parent_dir, item.name), 'wb') as open_file:
+        item.download_to(open_file)
+        open_file.close()
+```
+
 ### That's it! Let me know of any questions :)
