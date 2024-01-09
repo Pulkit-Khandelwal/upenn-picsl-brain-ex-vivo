@@ -21,7 +21,7 @@
 - Everything you need is already there on the lambda machine. Though if need be, you might have to be added to the docker user group (ask me or Gaylord).
 
 # Sample data
-I provide a sample image at the [box](https://upenn.box.com/s/q24zo6enivytnerko2ovt5kfzqq141ec) link. Use this image to test this docker container.
+I provide a sample `ex vivo` T2w image at the [box](https://upenn.box.com/s/q24zo6enivytnerko2ovt5kfzqq141ec) link. Use this image to test this docker container. There is also an `in vivo` flair image.
 
 # Docker image
 My docker image is located at `https://hub.docker.com/r/pulks/docker_hippogang_exvivo_segm`
