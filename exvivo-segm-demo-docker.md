@@ -1,5 +1,5 @@
 # Welcome to hippogang's ex vivo world!
-## Here, we will quickly run a docker container and get going with parcellating ex vivo 7 Tesla T2w & flash MRI of human brain hemisphere. We will use our favourite nnUNet!
+## Here, we will quickly run a docker container and get going with parcellating ex vivo 7 Tesla T2w & flash MRI of human brain hemisphere. We will use our favourite nnU-Net!
 
 #### Author: Pulkit Khandelwal
 ##### Version bare-bones: `docker_hippogang_exvivo_segm:v1.1.0`
@@ -37,7 +37,7 @@ I have provided some files in the folder `docker_files` for your reference only 
 Download the image from the box into a folder named `data_for_inference` (do NOT give it any other name) and then place this folder any directory of choice, for example, `/data/username/`.
 
 #### Step 2: Pull the docker image
-This should pull my dockjer image from docker hub. It is around 8GB in size.
+This should pull my docker image from docker hub. It is around 8GB in size.
 `docker pull pulks/docker_hippogang_exvivo_segm:v1.3.0`
 
 #### Step 3: Run the docker container
@@ -45,9 +45,10 @@ Run the following command to start the inference. See how the volume is mounted 
 
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.0 /bin/bash -c "bash /src/commands_nnunet_inference.sh" >> logs.txt`
 
-If, you want to run the WMH for `in vivo` flair data then run the following command:
+#### White matter hypeintensities in `in vivo` FLAIR images
+If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.0 /bin/bash -c "bash /src/commands_nnunet_inference_WMH_invivo.sh" >> logs.txt`
 
 #### Voila! check the output!
-It takes around 15-20 minutes to run the inference. You should see a folder in your local machine at the path:
+It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image and 1 minute for the `in vivo` FALIR image. You should see a folder in your local machine at the path:
 `/your/path/to/data_for_inference/output_from_nnunet_inference`
