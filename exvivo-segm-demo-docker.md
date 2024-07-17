@@ -5,6 +5,9 @@
 ##### Version bare-bones: `docker_hippogang_exvivo_segm:v1.1.0`
 
 ##### Change Logs
+07/16/24:
+- Version `docker_hippogang_exvivo_segm:v1.3.1` make singularity compaitble by removing a copy command in the bash script
+
 10/22/22:
 - Version `docker_hippogang_exvivo_segm:v1.3.0` sgements even the white matter automatically now!
 - Version `docker_hippogang_exvivo_segm:v1.2.0` now also performs segmentation for WMH in `in vivo` flair images used for Detre/Sandy's project on ADNI data.
