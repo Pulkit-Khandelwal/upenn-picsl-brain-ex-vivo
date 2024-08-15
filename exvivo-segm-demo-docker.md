@@ -19,7 +19,7 @@
 # Some useful things
 - You don't need any working knowledge of docker or kubernetes, but if curious, here is a great [YouTube video](https://youtu.be/3c-iBn73dDE).
 - You just need to provide a `nifti` image in the correct file format ending with `_0000.nii.gz`
-- NO need for a GPOU! Any linux-based machine works.
+- NO need for a GPU! Any linux-based machine works.
 - You do not need to have a docker hub account but might as well just in case. You can sign up [here](https://hub.docker.com/). It is free!
 
 # Sample data
@@ -40,17 +40,19 @@ Download the image from the box into a folder named `data_for_inference` (do NOT
 
 #### Step 2: Pull the docker image
 This should pull my docker image from docker hub. It is around 8GB in size.
-`docker pull pulks/docker_hippogang_exvivo_segm:v1.3.0`
+`docker pull pulks/docker_hippogang_exvivo_segm:v1.3.1`
 
 #### Step 3: Run the docker container
 Run the following command to start the inference. See how the volume is mounted in the following command. We mount the volume where the folder `data_for_inference`, with the image on which to run inference, is located. Here, `data_for_inference` is located in `/data/username/`. Leave the rest of the command as is.
 
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.1 /bin/bash -c "bash /src/commands_nnunet_inference.sh" >> logs.txt`
 
+#### Voila! check the output!
+It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. You should see a folder in your local machine at the path:
+`/your/path/to/data_for_inference/output_from_nnunet_inference`
+
 #### White matter hypeintensities in `in vivo` FLAIR images
 If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.1 /bin/bash -c "bash /src/commands_nnunet_inference_WMH_invivo.sh" >> logs.txt`
 
-#### Voila! check the output!
-It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image and 1 minute for the `in vivo` FALIR image. You should see a folder in your local machine at the path:
-`/your/path/to/data_for_inference/output_from_nnunet_inference`
+It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
