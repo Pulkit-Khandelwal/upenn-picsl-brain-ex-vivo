@@ -23,7 +23,6 @@
 - You don't need any working knowledge of docker or kubernetes, but if curious, here is a great [YouTube video](https://youtu.be/3c-iBn73dDE).
 - You just need to provide a `nifti` image in the correct file format ending with `_0000.nii.gz`
 - NO need for a GPU! Any linux-based machine works.
-- You do not need to have a docker hub account but might as well just in case. You can sign up [here](https://hub.docker.com/). It is free!
 
 # Sample data
 I provide a sample `ex vivo` T2w image at the [box](https://upenn.box.com/s/q24zo6enivytnerko2ovt5kfzqq141ec) link. Use this image to test this docker container. There is also an `in vivo` flair image.
