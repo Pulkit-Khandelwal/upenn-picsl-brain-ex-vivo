@@ -5,7 +5,7 @@
 ##### Version bare-bones: `docker_hippogang_exvivo_segm:v1.1.0`
 
 ##### Change Logs
-08/29/24:
+08/30/24:
 - Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum.
 
 07/16/24:
@@ -23,6 +23,13 @@
 - You don't need any working knowledge of docker or kubernetes, but if curious, here is a great [YouTube video](https://youtu.be/3c-iBn73dDE).
 - You just need to provide a `nifti` image in the correct file format ending with `_0000.nii.gz`
 - NO need for a GPU! Any linux-based machine works.
+- Choose one of the following options which 
+`${OPTION}=exvivo_t2w
+${OPTION}=exvivo_flash_more_subcort
+${OPTION}=exvivo_ciss_t2w
+${OPTION}=invivo_flair_wmh`
+
+
 
 # Sample data
 I provide a sample `ex vivo` T2w image at the [box](https://upenn.box.com/s/q24zo6enivytnerko2ovt5kfzqq141ec) link. Use this image to test this docker container. There is also an `in vivo` flair image.
@@ -56,7 +63,3 @@ It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. 
 ## White matter hypeintensities in `in vivo` FLAIR images
 If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
 It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
-${OPTION}=exvivo_t2w
-${OPTION}=exvivo_flash_more_subcort
-${OPTION}=exvivo_ciss_t2w
-${OPTION}=invivo_flair_wmh
