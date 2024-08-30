@@ -24,12 +24,12 @@
 - You just need to provide a `nifti` image in the correct file format ending with `_0000.nii.gz`
 - NO need for a GPU! Any linux-based machine works.
 - Choose one of the following options which 
-```${OPTION}=exvivo_t2w
+```
+${OPTION}=exvivo_t2w
 ${OPTION}=exvivo_flash_more_subcort
 ${OPTION}=exvivo_ciss_t2w
 ${OPTION}=invivo_flair_wmh
 ```
-
 
 
 # Sample data
