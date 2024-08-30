@@ -27,7 +27,8 @@
 ```${OPTION}=exvivo_t2w
 ${OPTION}=exvivo_flash_more_subcort
 ${OPTION}=exvivo_ciss_t2w
-${OPTION}=invivo_flair_wmh```
+${OPTION}=invivo_flair_wmh
+```
 
 
 
