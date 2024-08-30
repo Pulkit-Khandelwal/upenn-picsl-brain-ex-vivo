@@ -6,7 +6,7 @@
 
 ##### Change Logs
 08/30/24:
-- Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum.
+- Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum. Also updated the docker with models on ciss-t2w initial model and additonal t2*w mri segmentation labels. The docker run cmd now takes an option to select which model to run. Additionaly, updated the Dockerfile so that it can do inference on Ampere GPUs (CUDA>11).
 
 07/16/24:
 - Version `docker_hippogang_exvivo_segm:v1.3.1` make singularity compatible by removing a copy command in the bash script
