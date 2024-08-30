@@ -42,12 +42,12 @@ Download the image from the box into a folder named `data_for_inference` (do NOT
 
 #### Step 2: Pull the docker image
 This should pull my docker image from docker hub. It is around 8GB in size.
-`docker pull pulks/docker_hippogang_exvivo_segm:v1.3.1`
+`docker pull pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG}`
 
 #### Step 3: Run the docker container
 Run the following command to start the inference. See how the volume is mounted in the following command. We mount the volume where the folder `data_for_inference`, with the image on which to run inference, is located. Here, `data_for_inference` is located in `/data/username/`. Leave the rest of the command as is.
 
-`docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.1 /bin/bash -c "bash /src/commands_nnunet_inference.sh" >> logs.txt`
+`docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG} /bin/bash -c "bash /src/commands_nnunet_inference.sh ${OPTION} " >> logs.txt`
 
 #### Voila! check the output!
 It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. You should see a folder in your local machine at the path:
@@ -55,6 +55,8 @@ It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. 
 
 ## White matter hypeintensities in `in vivo` FLAIR images
 If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
-`docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v1.3.1 /bin/bash -c "bash /src/commands_nnunet_inference_WMH_invivo.sh" >> logs.txt`
-
 It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
+${OPTION}=exvivo_t2w
+${OPTION}=exvivo_flash_more_subcort
+${OPTION}=exvivo_ciss_t2w
+${OPTION}=invivo_flair_wmh
