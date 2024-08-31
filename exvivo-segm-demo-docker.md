@@ -25,17 +25,13 @@
 - NO need for a GPU! Any linux-based machine works.
 - Choose one of the following options for the segmentations you need. See the command at the end on how to use this Docker.
 
-`${OPTION}=exvivo_t2w`
-Model trained on t2w mri to get the 10 labels.
-
-`${OPTION}=exvivo_flash_more_subcort`
-Added four new segmentation labels: hypothal, optic chiasm, anterior commissure, fornix. This model has been trained on the flash t2* mri.
-
-`${OPTION}=exvivo_ciss_t2w`
-multi-input segmentation to solve the anterior/posterior missing segmentation issue.
-
-`${OPTION}=invivo_flair_wmh`
-white matter hyperintensities segmentation on invivio flair
+    - `${OPTION}=exvivo_t2w`: Model trained on t2w mri to get the 10 labels.
+    
+    - `${OPTION}=exvivo_flash_more_subcort`: Added four new segmentation labels: hypothal, optic chiasm, anterior commissure, fornix. This model has been trained on the flash t2* mri.
+    
+    - `${OPTION}=exvivo_ciss_t2w`: Multi-input segmentation to solve the anterior/posterior missing segmentation issue.
+    
+    - `${OPTION}=invivo_flair_wmh`: White matter hyperintensities segmentation on invivio flair
 
 - Replace ${LATEST_TAG} with the latest version of the Docker. See change logs above.
 
