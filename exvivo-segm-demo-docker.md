@@ -30,7 +30,7 @@ ${OPTION}=exvivo_flash_more_subcort
 ${OPTION}=exvivo_ciss_t2w
 ${OPTION}=invivo_flair_wmh
 ```
-
+- Replace ${LATEST_TAG} with the latest version of the Docker. See change logs above.
 
 # Sample data
 I provide a sample `ex vivo` T2w image at the [box](https://upenn.box.com/s/q24zo6enivytnerko2ovt5kfzqq141ec) link. Use this image to test this docker container. There is also an `in vivo` flair image.
