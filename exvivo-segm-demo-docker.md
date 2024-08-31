@@ -56,7 +56,7 @@ This should pull my docker image from docker hub. It is around 8GB in size.
 `docker pull pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG}`
 
 #### Step 3: Run the docker container
-Run the following command to start the inference. See how the volume is mounted in the following command. We mount the volume where the folder `data_for_inference`, with the image on which to run inference, is located. Here, `data_for_inference` is located in `/data/username/`. Leave the rest of the command as is.
+Run the following command to start the inference. See how the volume is mounted in the following command. We mount the volume where the folder `data_for_inference`, with the image on which to run inference, is located. Here, `data_for_inference` is located in `/data/username/`. Add the values: {LATEST_TAG} and ${OPTION}.
 
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG} /bin/bash -c "bash /src/commands_nnunet_inference.sh ${OPTION} " >> logs.txt`
 
