@@ -72,9 +72,38 @@ It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR ima
 I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
 
 Pull the latest `sif` or `simg` from here: . If you pull the `sif` file then convert it to `simg` as follows:
-`singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif` (This will take some time, get a coffee!)
-
 `singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.simg /bin/bash -c "/src/commands_nnunet_inference.sh exvivo_t2w"`
 
-### How did I buid the Singulairty container?
+### How did I build the Singularity container?
+#### Native no-root installation of Singularity
 
+```
+# Install go
+# Grab the tar file from: https://go.dev/doc/install
+tar -C /path/to/installation_dir/go_files -xzf go1.23.0.linux-amd64.tar.gz
+export PATH=$PATH:/path/to/installation_dir/go_files/go/bin
+
+# Install singularity:
+echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
+echo 'export PATH=/path/to/installation_dir/go_files/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
+source ~/.bashrc
+
+mkdir -p /path/to/installation_dir/singularity
+./mconfig --prefix=/path/to/installation_dir/singularity --without-seccomp --without-conmon --without-squashfuse --without-suid
+make -C ./builddir
+make -C ./builddir install
+
+chmod +x /path/to/installation_dir/singularity/bin/singularity
+```
+
+Next, since I'd a native installation, I also found it useful to set some `ENVIRONMENT` variables so that the `cache` and the `tmp` build files are in a specified 
+```export SINGULARITY_TMPDIR=/path/to/installation_dir
+export SINGULARITY_CACHEDIR=/path/to/installation_dir
+export SINGULARITY_ENVIRONMENT=/path/to/installation_dir
+```
+
+Then, run this to convert the docker container to singularity:
+`singularity build exvivo_dl_segn_tool.sif docker://pulks/docker_hippogang_exvivo_segm:v1.4.0`
+
+The, convert to `sandbox`. This will take some time, get a coffee!
+`singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif`
