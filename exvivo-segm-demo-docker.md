@@ -5,6 +5,9 @@
 ##### Version bare-bones: `docker_hippogang_exvivo_segm:v1.1.0`
 
 ##### Change Logs
+09/03/2024:
+- Support for Singularity added. See section on singularity below.
+
 08/30/24:
 - Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum. Also updated the docker with models on ciss-t2w initial model and additonal t2*w mri segmentation labels. The docker run cmd now takes an option to select which model to run. Additionaly, updated the Dockerfile so that it can do inference on Ampere GPUs (CUDA>11).
 
@@ -71,7 +74,7 @@ It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR ima
 # Convert Docker to Singularity
 I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
 
-Pull the latest `sif` or `simg` from here: . If you pull the `sif` file then convert it to `simg` as follows:
+Pull the latest `sif` or `simg` from here: .
 `singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.simg /bin/bash -c "/src/commands_nnunet_inference.sh exvivo_t2w"`
 
 ### How did I build the Singularity container?
