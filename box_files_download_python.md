@@ -112,6 +112,7 @@ for item in items:
 ```
 
 ##### How to uplaod files from a local folder to a specific folder on box?
+```
 root_folder = client.root_folder().get()
 items = root_folder.get_items()
 for item in items:
@@ -129,5 +130,6 @@ for file_path in local_folder.iterdir():
     print(file_path)
     file_name = os.path.basename(file_path)
     client.folder(FOLDER_ID_YOU_WANT).upload(file_path, file_name)
+```
 
 ### That's it! Let me know of any questions :)
