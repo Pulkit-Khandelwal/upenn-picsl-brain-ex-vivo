@@ -43,6 +43,7 @@ You will need to download ```boxsdk``` library from [here](https://github.com/bo
 # Imports and authentication
 import os
 from boxsdk import OAuth2, Client
+import pathlib
 
 auth = OAuth2(
     client_id='GET_FROM_THE_DEV_ACCOUNT',
@@ -109,5 +110,24 @@ for item in items:
         item.download_to(open_file)
         open_file.close()
 ```
+
+##### How to uplaod files from a local folder to a specific folder on box?
+root_folder = client.root_folder().get()
+items = root_folder.get_items()
+for item in items:
+    print('{0} {1} is named "{2}"'.format(item.type.capitalize(), item.id, item.name))
+    current_subject_id = item.id
+    if current_subject_id == 'FOLDER_ID_YOU_WANT':
+        items_in_subj_folder = client.folder(folder_id=current_subject_id).get_items()
+        for item in items_in_subj_folder:
+            print('{0} {1} is named "{2}"'.format(item.type.capitalize(), item.id, item.name))
+
+# Once you have the ID of the folder you want to upload the files to, do this:
+local_folder_path='/direectory/where/all/files/are/stored'
+local_folder = pathlib.Path(local_folder_path)
+for file_path in local_folder.iterdir():
+    print(file_path)
+    file_name = os.path.basename(file_path)
+    client.folder(FOLDER_ID_YOU_WANT).upload(file_path, file_name)
 
 ### That's it! Let me know of any questions :)
