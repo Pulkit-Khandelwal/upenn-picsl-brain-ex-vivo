@@ -52,7 +52,7 @@ I have provided some files in the folder `docker_files` for your reference only 
 Download the image from the box into a folder named `data_for_inference` (do NOT give it any other name) and then place this folder any directory of choice, for example, `/data/username/`.
 
 #### Step 2: Pull the docker image
-This should pull my docker image from docker hub. It is around 8GB in size.
+This should pull my docker image from docker hub. It is a really huge file.
 `docker pull pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG}`
 
 #### Step 3: Run the docker container
@@ -67,3 +67,14 @@ It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. 
 ## Note on white matter hypeintensities in `in vivo` FLAIR images
 If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
 It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
+
+# Convert Docker to Singularity
+I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
+
+Pull the latest `sif` or `simg` from here: . If you pull the `sif` file then convert it to `simg` as follows:
+`singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif` (This will take some time, get a coffee!)
+
+`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.simg /bin/bash -c "/src/commands_nnunet_inference.sh exvivo_t2w"`
+
+### How did I buid the Singulairty container?
+
