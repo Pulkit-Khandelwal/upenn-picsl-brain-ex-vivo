@@ -100,7 +100,8 @@ chmod +x /path/to/installation_dir/singularity/bin/singularity
 ```
 
 Next, since I'd a native installation, I also found it useful to set some `ENVIRONMENT` variables so that the `cache` and the `tmp` build files are in a specified 
-```export SINGULARITY_TMPDIR=/path/to/installation_dir
+```
+export SINGULARITY_TMPDIR=/path/to/installation_dir
 export SINGULARITY_CACHEDIR=/path/to/installation_dir
 export SINGULARITY_ENVIRONMENT=/path/to/installation_dir
 ```
