@@ -1,7 +1,9 @@
-# Welcome to hippogang's ex vivo world!
-## Postmortem 7 tesla T2w & flash deep learning-based MRI of human brain hemisphere.
+# Docker/Singularity for postmortem imaging
+## Deep learning-based segmentation of 7 tesla postmortem T2w & flash human brain hemisphere MRI.
 
 #### Author: Pulkit Khandelwal
+
+### Note: The current (09/04/2024) version of the containers is about ~48GB!!! This is huge and takes quite some time to download and convert from `sif` to `simg` for singualrity. I will reduce the file size in a future update. But, apart frrom that it works just fine!
 
 ##### Change Logs
 09/03/2024:
@@ -73,17 +75,19 @@ If, you want to run the WMH for `in vivo` flair data then run the following comm
 It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
 
 # Convert Docker to Singularity
-I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
+I converted the Docker image to Singularity and it should run on a linix machine with a GPU. Functionality remains the same.
 
 Pull the latest `sif` image:
-`singularity pull exvivo_dl_segm_pull.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v1.0.0`
+`singularity pull exvivo_dl_segm_pull.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v{LATEST_TAG}`
 
-Then, run the following command:
+Run the following command:
 `singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segm_pull.sif /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
 
-### FOR DEVELPERS: How did I build the Singularity container?
+### FOR DEVELOPERS
+#### How did I build the Singularity container?
 #### Native no-root installation of Singularity
 
+## Install
 ```
 # Install go
 # Grab the tar file from: https://go.dev/doc/install
@@ -110,16 +114,18 @@ export SINGULARITY_CACHEDIR=/path/to/installation_dir
 export SINGULARITY_ENVIRONMENT=/path/to/installation_dir
 ```
 
+## build, convert and run singualrity container
 Then, run this to convert the docker container to singularity:
-`singularity build exvivo_dl_segn_tool.sif docker://pulks/docker_hippogang_exvivo_segm:v1.4.0`
+`singularity build exvivo_dl_segm_tool.sif docker://pulks/docker_hippogang_exvivo_segm:v1.4.0`
 
-The, convert to `sandbox`. This will take some time, get a coffee!
-`singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif`
+Then, convert to `sandbox`:
+`singularity build --sandbox exvivo_dl_segm_tool.simg exvivo_dl_segm_tool.sif`
 
-Then, run the following command:
-`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.img /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
+Then, execute the following command to run the container:
+`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segm_tool.img /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
 
-Then, prepare the file to upload to Docker registry:
+## Upload singularity container to DockerHub
+Prepare the file to upload to Docker registry:
 ```
 singularity remote login
 singularity key newpair
@@ -130,7 +136,7 @@ singularity registry login --username pulks oras://registry-1.docker.io
 Password / Token: get it from Docker account.
 ```
 
-Then, push to the Docker registry:
+Then, push the image to the Docker registry:
 `singularity push exvivo_dl_segn_tool.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v1.0.0`
 
 Now, see the commands above to `pull` and `exec` the `sif` image.
