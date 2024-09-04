@@ -7,7 +7,7 @@
 ##### Change Logs
 09/03/2024:
 - Support for Singularity added. See section on singularity below. Latest tag for singularity: `1.0.0`.
-- The singuarity image has been uplaoded to DockerHub.
+- The singuarity image has been uploaded to DockerHub.
 
 08/30/24:
 - Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum. Also updated the docker with models on ciss-t2w initial model and additonal t2*w mri segmentation labels. The docker run cmd now takes an option to select which model to run. Additionaly, updated the Dockerfile so that it can do inference on Ampere GPUs (CUDA>11).
@@ -65,7 +65,7 @@ Run the following command to start the inference. See how the volume is mounted 
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG} /bin/bash -c "bash /src/commands_nnunet_inference.sh ${OPTION} " >> logs.txt`
 
 #### Voila! check the output!
-It takes around 15-20 minutes to run the inference for the `ex vivo` T2w image. You should see a folder in your local machine at the path:
+It takes around ~15 minutes to run the inference for the `ex vivo` T2w image. You should see a folder in your local machine at the path:
 `/your/path/to/data_for_inference/output_from_nnunet_inference`
 
 ## Note on white matter hypeintensities in `in vivo` FLAIR images
@@ -75,13 +75,13 @@ It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR ima
 # Convert Docker to Singularity
 I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
 
-Pull the latest `sif` or `simg` from here
+Pull the latest `sif` image:
 `singularity pull exvivo_dl_segm_pull.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v1.0.0`
 
 Then, run the following command:
 `singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segm_pull.sif /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
 
-### How did I build the Singularity container?
+### FOR DEVELPERS: How did I build the Singularity container?
 #### Native no-root installation of Singularity
 
 ```
@@ -116,6 +116,9 @@ Then, run this to convert the docker container to singularity:
 The, convert to `sandbox`. This will take some time, get a coffee!
 `singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif`
 
+Then, run the following command:
+`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.img /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
+
 Then, prepare the file to upload to Docker registry:
 ```
 singularity remote login
@@ -134,3 +137,4 @@ Now, see the commands above to `pull` and `exec` the `sif` image.
 
 ### Notes:
 - Here is a good reference for some of the cmds I used: https://foss.cyverse.org/10_reproducibility_IV/#pulling-an-image-from-singularity-hub
+- YouTube playlist: https://youtu.be/nQTMJ9hqKNI?si=dFW3TGNDjN_FEmXM
