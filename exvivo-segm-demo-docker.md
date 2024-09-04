@@ -6,7 +6,8 @@
 
 ##### Change Logs
 09/03/2024:
-- Support for Singularity added. See section on singularity below.
+- Support for Singularity added. See section on singularity below. Latest tag for singularity: `1.0.0`.
+- The singuarity image has been uplaoded to DockerHub.
 
 08/30/24:
 - Version `docker_hippogang_exvivo_segm:v1.4.0` updated with the model which includes the MTL, ventricles and the corpus callosum. Also updated the docker with models on ciss-t2w initial model and additonal t2*w mri segmentation labels. The docker run cmd now takes an option to select which model to run. Additionaly, updated the Dockerfile so that it can do inference on Ampere GPUs (CUDA>11).
@@ -74,8 +75,11 @@ It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR ima
 # Convert Docker to Singularity
 I converted the Docker image to Singularity and it should run on a GPU. Everything remains the same.
 
-Pull the latest `sif` or `simg` from here: .
-`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segn_tool.simg /bin/bash -c "/src/commands_nnunet_inference.sh exvivo_t2w"`
+Pull the latest `sif` or `simg` from here
+`singularity pull exvivo_dl_segm_pull.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v1.0.0`
+
+Then, run the following command:
+`singularity exec --nv --bind /data/username/:/data/exvivo exvivo_dl_segm_pull.sif /bin/bash -c "/src/commands_nnunet_inference.sh ${OPTION}"`
 
 ### How did I build the Singularity container?
 #### Native no-root installation of Singularity
@@ -99,7 +103,7 @@ make -C ./builddir install
 chmod +x /path/to/installation_dir/singularity/bin/singularity
 ```
 
-Next, since I'd a native installation, I also found it useful to set some `ENVIRONMENT` variables so that the `cache` and the `tmp` build files are in a specified 
+Next, since I've a native installation, I also found it useful to set some `ENVIRONMENT` variables so that the `cache` and the `tmp` build files are in a specified 
 ```
 export SINGULARITY_TMPDIR=/path/to/installation_dir
 export SINGULARITY_CACHEDIR=/path/to/installation_dir
@@ -112,6 +116,21 @@ Then, run this to convert the docker container to singularity:
 The, convert to `sandbox`. This will take some time, get a coffee!
 `singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif`
 
+Then, prepare the file to upload to Docker registry:
+```
+singularity remote login
+singularity key newpair
+singularity sign exvivo_dl_segn_tool.sif
+singularity verfiy exvivo_dl_segn_tool.sif
+
+singularity registry login --username pulks oras://registry-1.docker.io
+Password / Token: get it from Docker account.
+```
+
+Then, push to the Docker registry:
+`singularity push exvivo_dl_segn_tool.sif oras://registry-1.docker.io/pulks/exvivo_dl_segm_tool:v1.0.0`
+
+Now, see the commands above to `pull` and `exec` the `sif` image.
 
 ### Notes:
 - Here is a good reference for some of the cmds I used: https://foss.cyverse.org/10_reproducibility_IV/#pulling-an-image-from-singularity-hub
