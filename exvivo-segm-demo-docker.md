@@ -111,3 +111,7 @@ Then, run this to convert the docker container to singularity:
 
 The, convert to `sandbox`. This will take some time, get a coffee!
 `singularity build --sandbox exvivo_dl_segn_tool.simg exvivo_dl_segn_tool.sif`
+
+
+### Notes:
+- Here is a good reference for some of the cmds I used: https://foss.cyverse.org/10_reproducibility_IV/#pulling-an-image-from-singularity-hub
