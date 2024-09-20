@@ -48,8 +48,6 @@ My docker image is located at `https://hub.docker.com/r/pulks/docker_hippogang_e
 I have provided some files in the folder `docker_files` for your reference only but we do not need those for running the demo.
 
 # Steps
-#### Step 0: Login to your lambda machine and open a new tmux session
-`tmux new -s docker_trial`
 
 #### Step 1: Prepare the data
 Download the image from the box into a folder named `data_for_inference` (do NOT give it any other name) and then place this folder any directory of choice, for example, `/data/username/`.
