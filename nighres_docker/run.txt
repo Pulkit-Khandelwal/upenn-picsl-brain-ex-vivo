@@ -1,0 +1,2 @@
+docker build -f Dockerfile -t docker_nighres .
+docker run -v /data/pulkit/docker_stuff/docker_nighres/check/:/data/cruise_files/ -it docker_nighres /bin/bash -c "bash /data/prepare_cruise_files.sh"
