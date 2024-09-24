@@ -19,6 +19,4 @@ COPY c3d /data
 COPY prepare_cruise_files.sh /data
 COPY nighres_topology_corection.py /data
 
-RUN ls -l -h data
-RUN ls -l -h data/cruise_files
 RUN chmod +x data/c3d

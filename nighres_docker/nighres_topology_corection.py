@@ -31,22 +31,25 @@ output_path = '/data/cruise_files/data_for_topology_correction/output_corrected_
 for subj in subjects:
     subj=subj[:-7]
     print(subj)
-    
-    try:
-        gm = output_path + subj + '_gm.nii.gz'
-        wm = output_path + subj + '_wm.nii.gz'
-        csf = output_path + subj + '_csf.nii.gz'
 
-        cruise = nighres.cortex.cruise_cortex_extraction(
-                                init_image=wm,
-                                wm_image=wm,
-                                gm_image=gm,
-                                csf_image=csf,
-                                normalize_probabilities=True,
-                                save_data=False)
+    gm = output_path + subj + '_gm.nii.gz'
+    wm = output_path + subj + '_wm.nii.gz'
+    csf = output_path + subj + '_csf.nii.gz'
 
-        cruise_to_save = cruise['cortex']
-        nib.save(cruise_to_save, output_path + subj + '_cortex_cruise.nii.gz')
+    cruise = nighres.cortex.cruise_cortex_extraction(
+                            init_image=wm,
+                            wm_image=wm,
+                            gm_image=gm,
+                            csf_image=csf,
+                            normalize_probabilities=True,
+                            save_data=False)
 
-    except:
-        continue
+    cruise_to_save = cruise['cortex']
+    nib.save(cruise_to_save, output_path + subj + '_cortex_cruise.nii.gz')
+
+    full_segm, _, img_obj = read_nifti(input_path + subj + '.nii.gz')
+    gm_segm, _, _ = read_nifti(output_path + subj + '_cortex_cruise.nii.gz')
+    wm_filled_segm, _, _ = read_nifti(output_path + subj + '_wm_plus_binarized.nii.gz')
+
+    gm_segm[wm_filled_segm == 7] = 0
+    save_nifti(gm_segm, output_path + subj + '_gm_cortex_cruise_retained_overlap.nii.gz', img_obj)
