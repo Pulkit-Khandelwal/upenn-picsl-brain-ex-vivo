@@ -3,6 +3,7 @@ docker push pulks/docker_nighres:v1.0.0
 docker pull pulks/docker_nighres:v1.0.0
 
 # run to get the cruise-toplogy correction
+# make directory data_for_topology_correction in let's say /data/pulkit/docker_stuff/docker_nighres/check/
 docker run -v /data/pulkit/docker_stuff/docker_nighres/check/:/data/cruise_files/ -it pulks/docker_nighres:v1.0.0 /bin/bash -c "bash /data/prepare_cruise_files.sh"
 
 # locally run the file to get the final combined label file
