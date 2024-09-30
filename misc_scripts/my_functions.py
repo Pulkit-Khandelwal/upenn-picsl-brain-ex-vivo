@@ -64,5 +64,7 @@ def blockshaped(arr, nrows, ncols):
                .swapaxes(1,2)
                .reshape(-1, nrows, ncols))
 
+def retain_spepcific_intensty(image):
+    image[(image!=1) & (image!=2) & (image!=3) & (image!=4) & (image!=5) & (image!=6) & (image!=7)] = 0
 
 
