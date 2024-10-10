@@ -6,6 +6,9 @@
 ### Note: The current (09/04/2024) version of the containers is about ~48GB!!! This is huge and takes quite some time to download and convert from `sif` to `simg` for singualrity. I will reduce the file size in a future update. But, apart frrom that it works just fine!
 
 ##### Change Logs
+10/10/2024:
+- Added documentation for the post-hoc topology correction docker.
+
 09/03/2024:
 - Support for Singularity added. See section on singularity below. Latest tag for singularity: `1.0.0`.
 - The singuarity image has been uploaded to DockerHub.
@@ -68,6 +71,22 @@ It takes around ~15 minutes to run the inference for the `ex vivo` T2w image. Yo
 ## Note on white matter hypeintensities in `in vivo` FLAIR images
 If, you want to run the WMH for `in vivo` flair data then run the following command. Make sure that the image is skull-stripped and normalized/standardized.
 It takes around 1 minute to get the WMH segmentations in the `in vivo` FALIR image.
+
+# Post-hoc topology correction
+After that, run the new docker for post-hoc topology correction. This solves the buried sulci and adjoining gyri problem.
+Here is the second docker for post-hoc topology correction and below are the instructions:
+https://github.com/Pulkit-Khandelwal/upenn-picsl-brain-ex-vivo/blob/main/nighres_docker
+
+### Pull the docker
+docker pull pulks/docker_nighres:v1.0.0
+
+### Run the docker to get the cruise-nighres topology correction. Make directory data_for_topology_correction in let's say `/your/path/docker_stuff/docker_nighres/check/`. This directory should consist of only your segmentation output from the first segmentation docker
+
+# Run docker
+docker run -v /your/path/docker_stuff/docker_nighres/check/:/data/cruise_files/ -it pulks/docker_nighres:v1.0.0 /bin/bash -c "bash /data/prepare_cruise_files.sh"
+
+# Locally run the file to get the final combined label file which is located in the above GitHub directory
+bash clean_labels_final.sh
 
 # Convert Docker to Singularity
 I converted the Docker image to Singularity and it should run on a linix machine with a GPU. Functionality remains the same.
