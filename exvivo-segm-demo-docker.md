@@ -64,7 +64,8 @@ Run the following command to start the inference. See how the volume is mounted 
 
 `docker run --gpus all --privileged -v /data/username/:/data/exvivo/ -it pulks/docker_hippogang_exvivo_segm:v${LATEST_TAG} /bin/bash -c "bash /src/commands_nnunet_inference.sh ${OPTION}" >> logs.txt`
 
-#### Voila! check the output!
+#### Check the output!
+Note, you might see a warning diaplyed on the temrinal, you can safely ignore that!
 It takes around ~15 minutes to run the inference for the `ex vivo` T2w image. You should see a folder in your local machine at the path:
 `/your/path/to/data_for_inference/output_from_nnunet_inference`
 
@@ -80,7 +81,7 @@ https://github.com/Pulkit-Khandelwal/upenn-picsl-brain-ex-vivo/blob/main/nighres
 ### Pull the docker
 docker pull pulks/docker_nighres:v1.0.0
 
-### Run the docker to get the cruise-nighres topology correction. Make directory data_for_topology_correction in let's say `/your/path/docker_stuff/docker_nighres/check/`. This directory should consist of only your segmentation output from the first segmentation docker
+# Run the docker to get the cruise-nighres topology correction. Make directory data_for_topology_correction in let's say `/your/path/docker_stuff/docker_nighres/check/`. This directory should consist of only your segmentation output from the first segmentation docker
 
 # Run docker
 docker run -v /your/path/docker_stuff/docker_nighres/check/:/data/cruise_files/ -it pulks/docker_nighres:v1.0.0 /bin/bash -c "bash /data/prepare_cruise_files.sh"
