@@ -79,9 +79,11 @@ Here is the second docker for post-hoc topology correction and below are the ins
 https://github.com/Pulkit-Khandelwal/upenn-picsl-brain-ex-vivo/blob/main/nighres_docker
 
 ### Pull the docker
-docker pull pulks/docker_nighres:v1.0.0
+`docker pull pulks/docker_nighres:v1.0.0`
 
-# Run the docker to get the cruise-nighres topology correction. Make directory data_for_topology_correction in let's say `/your/path/docker_stuff/docker_nighres/check/`. This directory should consist of only your segmentation output from the first segmentation docker
+Run the docker to get the cruise-nighres topology correction.
+Make directory data_for_topology_correction in let's say `/your/path/docker_stuff/docker_nighres/check/`.
+This directory should consist of only your segmentation output from the first segmentation docker.
 
 # Run docker
 docker run -v /your/path/docker_stuff/docker_nighres/check/:/data/cruise_files/ -it pulks/docker_nighres:v1.0.0 /bin/bash -c "bash /data/prepare_cruise_files.sh"
