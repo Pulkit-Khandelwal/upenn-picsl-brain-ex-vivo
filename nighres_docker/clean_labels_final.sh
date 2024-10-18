@@ -14,6 +14,6 @@ do
 
   c3d ${tgt_dir}/${filename_subj}_all_other_labels.nii.gz ${output_dir}/${filename_subj}_gm_cortex_cruise_retained_overlap_rounded.nii.gz -add -o ${output_dir}/${filename_subj}_aseg_ready_with_overlap_corrected.nii.gz
 
-  c3d ${output_dir}/${filename_subj}_aseg_ready_with_overlap_corrected.nii.gz -retain-labels 1 2 3 4 5 6 7 8 9 10 -o ${output_dir}/${filename_subj}_topology_corrected_all_labels.nii.gz
+  c3d ${output_dir}/${filename_subj}_aseg_ready_with_overlap_corrected.nii.gz -retain-labels 1 2 3 4 5 6 7 8 9 10 -o ${output_dir}/${filename_subj}.nii.gz
 
 done;
