@@ -1,4 +1,8 @@
-# Welcome to hippogang/PICSL's ex vivo world at UPenn!
+# As of Oct. 21st 2024, this repo has been moved to: https://github.com/Pulkit-Khandelwal/purple-mri/tree/main
+# It will be maintained there.
+# If you are looking for Docker stuff, see [here](https://github.com/Pulkit-Khandelwal/purple-mri/blob/main/docker/exvivo_docker.md)
+
+### Welcome to hippogang/PICSL's ex vivo world at UPenn!
 
 ### Automated deep learning segmentation of high-resolution 7 T ex vivo MRI for quantitative analysis of structure/pathology correlations in neurodegenerative disease
 
